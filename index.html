@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+ 
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form method="post" action="" name="form" id="form">
+        <label>password</label>
+        <input type="text" name="pass">
+        <br>
+        <br>
+
+        <label>number</label>
+        <input type="text" name="num">
+        <br>
+        <br>
+
+
+        <label>gmail</label>
+        <input type="email" name="mail">
+        <br>
+        <br>
+        <input type="button" value="sumbit">
+    </form>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $("#form").validate({
+            rules: {
+                pass: {
+                    required: true,
+                    minlength: 8,
+                    maxlength:12,
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$&])[A-Z a-z @$&]{8,12}$/
+                },
+                num: {
+                    required: true,
+                    minlength: 1,
+                    pattern: /^\d{4}-\d{3}-\d{2}$/
+                },
+                mail: {
+                    required: true,
+                    minlength: 1,
+                  
+                    pattern: /^(?=.*[a-zA-Z0-9])[a-zA-Z0-9]+@amazon\.co\.in$/
+                }
+            },
+            messages: {
+                pass: {
+                    minlength: 'minimum length required',
+                    maxlength: 'maximun length required',
+                    pattern: 'please enter your input in a valid format'
+
+                },
+                num: {
+                    minlength: 'minimum length required',
+                    
+                    pattern: 'please enter your input in valida format'
+                },
+                mail: {
+                    minlength: 'minimum length required',
+                  
+                    pattern: 'please enter your input in valid format'
+
+
+                }
+            }
+
+        })
+    })
+</script>
+
+</html>
